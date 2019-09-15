@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.validation.Validator;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import javax.persistence.EntityManagerFactory;
@@ -25,7 +27,7 @@ public class AppConfig {
     @Bean
     public LocalEntityManagerFactoryBean entityManagerFactory() {
         LocalEntityManagerFactoryBean emf = new LocalEntityManagerFactoryBean();
-        emf.setPersistenceUnitName("twitterPU");
+        emf.setPersistenceUnitName("salonPU");
         return emf;
     }
 
@@ -35,10 +37,10 @@ public class AppConfig {
         JpaTransactionManager transactionManager = new JpaTransactionManager(emf);
         return transactionManager;
     }
-    //    validator
-//    @Bean
-//    public Validator validator() {
-//        return new LocalValidatorFactoryBean();
-//    }
+
+    @Bean
+    public Validator validator() {
+        return new LocalValidatorFactoryBean();
+    }
 
 }
