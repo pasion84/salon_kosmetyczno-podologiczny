@@ -7,15 +7,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e710e61c-3209-4136-9c6a-98dd48de12a3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project/src/main/java/pl/salon/dto/LoginFormDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project/src/main/java/pl/salon/web/controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/pl/salon/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/pl/salon/configuration/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/pl/salon/web/controllers/HomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/pl/salon/web/controllers/HomePageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/webapp/WEB-INF/views/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/webapp/WEB-INF/views/header.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/src/main/java/pl/salon/dto/CosmeticProcedureFormDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/src/main/java/pl/salon/model/CosmeticProcedure.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/src/main/java/pl/salon/repositories/CosmeticProcedureRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/src/main/java/pl/salon/services/CosmeticProcedureService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/src/main/java/pl/salon/web/controllers/CosmeticProcedureController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/src/main/webapp/WEB-INF/views/addCosmeticProcedure.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/src/main/webapp/WEB-INF/views/cosmeticProcedures.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/pl/salon/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/pl/salon/model/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/webapp/WEB-INF/views/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/webapp/WEB-INF/views/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/salon/model/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/salon/model/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/salon-kosmetyczno-podologiczny-1.0-SNAPSHOT/WEB-INF/classes/pl/salon/model/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/salon-kosmetyczno-podologiczny-1.0-SNAPSHOT/WEB-INF/classes/pl/salon/model/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/salon-kosmetyczno-podologiczny-1.0-SNAPSHOT/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/salon-kosmetyczno-podologiczny-1.0-SNAPSHOT/WEB-INF/views/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/salon-kosmetyczno-podologiczny-1.0-SNAPSHOT/WEB-INF/views/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/salon-kosmetyczno-podologiczny-1.0-SNAPSHOT/WEB-INF/views/login.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,15 +46,18 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="FxmlFile" />
         <option value="Jsp File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/project/src/main/webapp/WEB-INF/views/addCosmeticProcedure.jsp" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IgnoredFileRootStore">
     <option name="generatedRoots">
@@ -214,6 +223,7 @@
       <updated>1568539496947</updated>
       <workItem from="1568539499584" duration="14542000" />
       <workItem from="1568824166339" duration="10929000" />
+      <workItem from="1568898122336" duration="14090000" />
     </task>
     <task id="LOCAL-00001" summary="usunięcie">
       <created>1568540253974</created>
@@ -257,7 +267,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568558930820</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="formularz logowania + bootstramp + security config">
+      <created>1568898283856</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1568898283856</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,7 +285,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -281,7 +300,8 @@
     <MESSAGE value="konfiguracja + pom" />
     <MESSAGE value="pom data dependancy update" />
     <MESSAGE value="in progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="in progress" />
+    <MESSAGE value="formularz logowania + bootstramp + security config" />
+    <option name="LAST_COMMIT_MESSAGE" value="formularz logowania + bootstramp + security config" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

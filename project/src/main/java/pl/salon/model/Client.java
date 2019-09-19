@@ -3,6 +3,7 @@ package pl.salon.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "clients")
@@ -17,7 +18,7 @@ public class Client extends AbstractEntity {
     @Column(name = "surname")
     private String lastName;
     @Column(unique = true, nullable = false, name = "phone")
-//    adnotacja z regexem
+    @Pattern(regexp = "[1-9][0-9]{8}", message = "nr telefonu składa się z 9 liczb")
     private String phoneNumber;
 
     public String getEmail() {

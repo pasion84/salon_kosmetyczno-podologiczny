@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: grzesiek
@@ -9,5 +10,7 @@
 <jsp:include page="header.jsp"/>
 <br>
 <h1> witaj ${clientname} w naszym salonie</h1>
+
+<a href="<c:url value="/procedures"/>"><button type="button" class="btn btn-primary">dodaj zabieg</button></a>
 <br>
 <jsp:include page="footer.jsp"/>
