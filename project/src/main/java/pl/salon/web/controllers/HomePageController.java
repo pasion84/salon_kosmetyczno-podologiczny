@@ -17,9 +17,4 @@ public class HomePageController {
         model.addAttribute("clientname", clientname);
         return "index";
     }
-
-    @GetMapping("/login")
-    public String showLoginPage() {
-        return "login";
-    }
 }

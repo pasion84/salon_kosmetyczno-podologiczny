@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: grzesiek
@@ -8,7 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>podologia</title>
+    <title>witaj w salonie Sanita</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -47,8 +49,23 @@
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <c:choose>
+                        <c:when test="${param.login == null}">
+                            <a class="nav-link" href="<c:url value="/login"/> ">Zaloguj się</a>
+                        </c:when>
+                        <c:otherwise>
+                            <a class="nav-link" href="<c:url value="/login"/> ">Wyloguj się</a>
+                        </c:otherwise>
+                    </c:choose>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<c:url value="/register"/> ">Zarejestruj się</a>
+                </li>
+            </ul>
+            <%--            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">--%>
+            <%--            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>--%>
         </form>
     </div>
 </nav>
