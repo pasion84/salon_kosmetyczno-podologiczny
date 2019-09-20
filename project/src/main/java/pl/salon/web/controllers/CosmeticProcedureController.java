@@ -33,11 +33,26 @@ public class CosmeticProcedureController {
         if (result.hasErrors()) return "addCosmeticProcedure";
         if (cosmeticProcedureFormDTO.getName().isEmpty()) {
             result.rejectValue("name", null, "pole name nie może być puste");
+            return "addCosmeticProcedure";
+        }
+        if (cosmeticProcedureFormDTO.getPrice() == null) {
             result.rejectValue("price", null, "pole price nie może być puste");
+            return "addCosmeticProcedure";
+        }
+        if (cosmeticProcedureFormDTO.getDurationOfProcedureInMinutes() == null) {
             result.rejectValue("durationOfProcedure", null, "pole durationOfProcedure nie może być puste");
             return "addCosmeticProcedure";
         }
         cosmeticProcedureService.registerNewCosmeticProcedure(cosmeticProcedureFormDTO);
         return "redirect:/";
     }
+
+    @GetMapping
+    public String prepareProcedureListPage(Model model) {
+        model.addAttribute("procedureList", new CosmeticProcedureFormDTO());
+        return "cosmeticProcedures";
+    }
+
+//    @PostMapping
+//    public String processProcedureListPage()
 }
