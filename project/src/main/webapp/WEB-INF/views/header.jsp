@@ -11,14 +11,17 @@
 <html>
 <head>
     <title>witaj w salonie Sanita</title>
+    <%--    bootstramp--%>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <%--    fontawesome.com--%>
+    <script src="https://kit.fontawesome.com/f84d87b17f.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
 <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="fas fa-shoe-prints" href="<c:url value="/"/>"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -27,7 +30,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="<c:url value="/"/>">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>

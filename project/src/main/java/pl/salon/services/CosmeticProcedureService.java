@@ -6,6 +6,8 @@ import pl.salon.dto.CosmeticProcedureFormDTO;
 import pl.salon.model.CosmeticProcedure;
 import pl.salon.repositories.CosmeticProcedureRepository;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class CosmeticProcedureService {
@@ -21,5 +23,17 @@ public class CosmeticProcedureService {
         cosmeticProcedure.setPrice(data.getPrice());
         cosmeticProcedure.setDurationOfProcedureInMinutes(data.getDurationOfProcedureInMinutes());
         cosmeticProcedureRepository.save(cosmeticProcedure);
+    }
+
+    public List<CosmeticProcedure> findAllCosmeticProcedures() {
+        return cosmeticProcedureRepository.findAll();
+    }
+
+    public CosmeticProcedure findCosmeticProcedureById(Long id) {
+        return cosmeticProcedureRepository.findCosmeticProcedureById(id);
+    }
+
+    public CosmeticProcedure deleteCosmeticProcedureById(Long id) {
+        return cosmeticProcedureRepository.deleteCosmeticProcedureById(id);
     }
 }

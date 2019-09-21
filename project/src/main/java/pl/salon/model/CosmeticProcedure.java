@@ -8,7 +8,7 @@ import javax.persistence.Table;
 @Table(name = "cosmetic_procedures")
 public class CosmeticProcedure extends AbstractEntity {
 
-    @Column(nullable = false, name = "procedure_name")
+    @Column(nullable = false, unique = true, name = "procedure_name")
     private String name;
     @Column(nullable = false, name = "procedure_price")
     private Double price;

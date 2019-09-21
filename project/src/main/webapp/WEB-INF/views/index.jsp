@@ -10,9 +10,13 @@
 <jsp:include page="header.jsp"/>
 <br>
 <h1> witaj ${clientname} w naszym salonie</h1>
-
+<br>
 <a href="<c:url value="/procedures"/>">
-    <button type="button" class="btn btn-primary">dodaj zabieg</button>
+    <button type="button" class="btn btn-primary">Lista zabiegów</button>
+</a>
+
+<a href="<c:url value="/client"/>">
+    <button type="button" class="btn btn-primary">Lista klientów</button>
 </a>
 <br>
 <jsp:include page="footer.jsp"/>

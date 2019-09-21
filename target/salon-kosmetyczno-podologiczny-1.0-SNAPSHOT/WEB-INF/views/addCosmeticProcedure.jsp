@@ -16,11 +16,11 @@
     <form:errors path="name"/>
 </p>
 <p>
-    Cena zabiegu: <form:input path="price"/>
+    Cena zabiegu: <form:input size="4" path="price"/>
     <form:errors path="price"/>
 </p>
 <p>
-    Czas trwania zabiegu w minutach: <form:input path="durationOfProcedureInMinutes"/>
+    Czas trwania zabiegu w minutach: <form:input size="4" path="durationOfProcedureInMinutes"/>
     <form:errors path="durationOfProcedureInMinutes"/>
 </p>
 

@@ -4,16 +4,15 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.Range;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 public class CosmeticProcedureFormDTO {
-    @NotBlank
+    @NotBlank(message = "wpisz nazwę zabiegu")
     private String name;
-    @NotNull
-    @Range(min = 25)
+    @NotNull(message = "podaj cenę zabiegu")
+    @Range(min = 25, message = "zabieg może kosztować min 25 zł")
     private Double price;
-    @NotNull
-    @Range(min = 20, max = 180)
+    @NotNull(message = "podaj czas trwania zabiegu w minutach")
+    @Range(min = 30, max = 180, message = "zabieg może trwać min 30min, max 180min")
     private Integer durationOfProcedureInMinutes;
 
     public String getName() {
