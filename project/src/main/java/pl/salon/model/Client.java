@@ -3,13 +3,11 @@ package pl.salon.model;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.pl.NIP;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Pattern;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "clients")
@@ -35,7 +33,17 @@ public class Client extends AbstractEntity {
     @NIP
     @NotBlank
     private String nip;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roleSet;
 
+    public Set<Role> getRoleSet() {
+        return roleSet;
+    }
+
+    public void setRoleSet(Set<Role> roleSet) {
+        this.roleSet = roleSet;
+    }
 
     public Double getSalaryPerHour() {
         return salaryPerHour;
