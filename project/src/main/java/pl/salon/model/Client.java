@@ -1,13 +1,13 @@
 package pl.salon.model;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.pl.NIP;
 
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "clients")
@@ -26,23 +26,22 @@ public class Client extends AbstractEntity {
     private String phoneNumber;
     @OneToMany(mappedBy = "client")
     private List<PlannedProcedure> plannedProcedure = new ArrayList<>();
-    @Column(name = "salary", nullable = false)
+    @Column(name = "salary")
     private Double salaryPerHour;
     @Column(name = "address")
     private String address;
     @NIP
-    @NotBlank
     private String nip;
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roleSet;
+    @NotEmpty
+    @Column(name = "role")
+    private String role;
 
-    public Set<Role> getRoleSet() {
-        return roleSet;
+    public String getRole() {
+        return role;
     }
 
-    public void setRoleSet(Set<Role> roleSet) {
-        this.roleSet = roleSet;
+    public void setRoleSet(String role) {
+        this.role = role;
     }
 
     public Double getSalaryPerHour() {

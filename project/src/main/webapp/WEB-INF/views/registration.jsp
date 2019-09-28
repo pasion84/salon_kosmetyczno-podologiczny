@@ -35,6 +35,19 @@
     Nr telefonu: <form:input path="phoneNumber"/>
     <form:errors path="phoneNumber"/>
 </p>
+<p>
+<p>
+    NIP: <form:input path="nip"/>
+    <form:errors path="nip"/>
+</p>
+
+Rola:
+<form:select path="role">
+<form:option value="ROLE_ADMIN">ADMIN</form:option>
+<form:option value="ROLE_USER">KLIENT</form:option>
+</form:select>
+    <form:errors path="role"/>
+</p>
 
 <p>
     <input type="submit" value="Zarejestruj">

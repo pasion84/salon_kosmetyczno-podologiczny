@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <%--    fontawesome.com--%>
-        <script src="https://kit.fontawesome.com/f84d87b17f.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/f84d87b17f.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -57,12 +57,12 @@
                     <c:choose>
 
                     <c:when test="${sessionScope.User.getName() != null}">
-                        <a class="nav-link">Witaj ${sessionScope.User.getName()}</a>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<c:url value="/logout"/> ">Wyloguj się</a>
-                        </li>
-                    </c:when>
-                    <c:otherwise>
+                    <a class="nav-link">Witaj ${sessionScope.User.getName()}</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="<c:url value="/logout"/> ">Wyloguj się</a>
+                </li>
+                </c:when>
+                <c:otherwise>
                     <a class="nav-link" href="<c:url value="/login"/> ">Zaloguj się</a>
                     </li>
                     <li class="nav-item">

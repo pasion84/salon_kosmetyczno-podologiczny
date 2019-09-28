@@ -26,14 +26,22 @@ public class RegistrationService {
         } else return true;
     }
 
+    public boolean isAdmin(String email) {
+        return clientRepository.findByEmail(email).getRole().equals("ROLE_ADMIN") ? true : false;
+    }
+
     public void registerClient(RegistrationFormDTO data) {
         Client client = new Client();
         client.setEmail(data.getEmail());
         String encodedPassword = passwordEncoder.encode(data.getPassword());
+        String encodedRePassword = passwordEncoder.encode(data.getRePassword());
         client.setPassword(encodedPassword);
+        client.setPassword(encodedRePassword);
         client.setFirstName(data.getFirstName());
         client.setLastName(data.getLastName());
         client.setPhoneNumber(data.getPhoneNumber());
+        client.setNip(data.getNip());
+        client.setRoleSet(data.getRole());
         clientRepository.save(client);
     }
 }

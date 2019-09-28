@@ -7,31 +7,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e710e61c-3209-4136-9c6a-98dd48de12a3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/project/src/main/java/pl/salon/model/PlannedProcedure.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/pl/salon/dto/RegistrationFormDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/pl/salon/dto/RegistrationFormDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/src/main/java/pl/salon/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/pl/salon/model/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/pl/salon/model/CosmeticProcedure.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/pl/salon/model/CosmeticProcedure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/pl/salon/repositories/CosmeticProcedureRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/pl/salon/repositories/CosmeticProcedureRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/pl/salon/services/CosmeticProcedureService.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/pl/salon/services/CosmeticProcedureService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/pl/salon/web/controllers/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/pl/salon/web/controllers/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/pl/salon/web/controllers/CosmeticProcedureController.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/pl/salon/web/controllers/CosmeticProcedureController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/pl/salon/web/controllers/HomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/pl/salon/web/controllers/HomePageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/webapp/WEB-INF/views/deleteCosmeticProcedure.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/webapp/WEB-INF/views/deleteCosmeticProcedure.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/webapp/WEB-INF/views/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/webapp/WEB-INF/views/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/pl/salon/model/Role.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/pl/salon/repositories/ClientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/pl/salon/repositories/ClientRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/pl/salon/services/RegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/pl/salon/services/RegistrationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/webapp/WEB-INF/views/registration.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/webapp/WEB-INF/views/registration.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/salon/dto/RegistrationFormDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/salon/dto/RegistrationFormDTO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/pl/salon/model/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/salon/model/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/salon/model/CosmeticProcedure.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/salon/model/CosmeticProcedure.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/salon/repositories/CosmeticProcedureRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/salon/repositories/CosmeticProcedureRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/salon/web/controllers/CosmeticProcedureController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/salon/web/controllers/CosmeticProcedureController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/salon/web/controllers/HomePageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/salon/web/controllers/HomePageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/salon/services/RegistrationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/salon/services/RegistrationService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/salon-kosmetyczno-podologiczny-1.0-SNAPSHOT/WEB-INF/classes/pl/salon/dto/RegistrationFormDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/salon-kosmetyczno-podologiczny-1.0-SNAPSHOT/WEB-INF/classes/pl/salon/dto/RegistrationFormDTO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/salon-kosmetyczno-podologiczny-1.0-SNAPSHOT/WEB-INF/classes/pl/salon/model/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/salon-kosmetyczno-podologiczny-1.0-SNAPSHOT/WEB-INF/classes/pl/salon/model/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/salon-kosmetyczno-podologiczny-1.0-SNAPSHOT/WEB-INF/classes/pl/salon/model/CosmeticProcedure.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/salon-kosmetyczno-podologiczny-1.0-SNAPSHOT/WEB-INF/classes/pl/salon/model/CosmeticProcedure.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/salon-kosmetyczno-podologiczny-1.0-SNAPSHOT/WEB-INF/classes/pl/salon/repositories/CosmeticProcedureRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/salon-kosmetyczno-podologiczny-1.0-SNAPSHOT/WEB-INF/classes/pl/salon/repositories/CosmeticProcedureRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/salon-kosmetyczno-podologiczny-1.0-SNAPSHOT/WEB-INF/classes/pl/salon/web/controllers/CosmeticProcedureController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/salon-kosmetyczno-podologiczny-1.0-SNAPSHOT/WEB-INF/classes/pl/salon/web/controllers/CosmeticProcedureController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/salon-kosmetyczno-podologiczny-1.0-SNAPSHOT/WEB-INF/classes/pl/salon/web/controllers/HomePageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/salon-kosmetyczno-podologiczny-1.0-SNAPSHOT/WEB-INF/classes/pl/salon/web/controllers/HomePageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/salon-kosmetyczno-podologiczny-1.0-SNAPSHOT/WEB-INF/views/cosmeticProcedures.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/salon-kosmetyczno-podologiczny-1.0-SNAPSHOT/WEB-INF/views/cosmeticProcedures.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/salon-kosmetyczno-podologiczny-1.0-SNAPSHOT/WEB-INF/classes/pl/salon/services/RegistrationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/salon-kosmetyczno-podologiczny-1.0-SNAPSHOT/WEB-INF/classes/pl/salon/services/RegistrationService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/salon-kosmetyczno-podologiczny-1.0-SNAPSHOT/WEB-INF/views/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/salon-kosmetyczno-podologiczny-1.0-SNAPSHOT/WEB-INF/views/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/salon-kosmetyczno-podologiczny-1.0-SNAPSHOT/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/salon-kosmetyczno-podologiczny-1.0-SNAPSHOT/WEB-INF/views/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/salon-kosmetyczno-podologiczny-1.0-SNAPSHOT/WEB-INF/views/registration.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/salon-kosmetyczno-podologiczny-1.0-SNAPSHOT/WEB-INF/views/registration.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +40,23 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="salon@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="salon@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="salon@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="salon: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -236,7 +242,7 @@
       <workItem from="1568898122336" duration="14596000" />
       <workItem from="1568970330362" duration="3293000" />
       <workItem from="1569084194447" duration="11811000" />
-      <workItem from="1569655008665" duration="17124000" />
+      <workItem from="1569655008665" duration="23053000" />
     </task>
     <task id="LOCAL-00001" summary="usunięcie">
       <created>1568540253974</created>
@@ -308,7 +314,21 @@
       <option name="project" value="LOCAL" />
       <updated>1569096493762</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="relations, model">
+      <created>1569676035355</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1569676035355</updated>
+    </task>
+    <task id="LOCAL-00012" summary="role model and relation with client">
+      <created>1569676541671</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1569676541671</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,7 +356,9 @@
     <MESSAGE value="in progress" />
     <MESSAGE value="formularz logowania + bootstramp + security config" />
     <MESSAGE value="CosmeticProcedure DTO, model, controller + views" />
-    <option name="LAST_COMMIT_MESSAGE" value="CosmeticProcedure DTO, model, controller + views" />
+    <MESSAGE value="relations, model" />
+    <MESSAGE value="role model and relation with client" />
+    <option name="LAST_COMMIT_MESSAGE" value="role model and relation with client" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

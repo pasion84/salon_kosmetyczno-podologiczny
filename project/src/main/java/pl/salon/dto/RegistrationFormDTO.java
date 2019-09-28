@@ -2,6 +2,8 @@ package pl.salon.dto;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.pl.NIP;
 
 import javax.validation.constraints.Size;
 
@@ -22,6 +24,26 @@ public class RegistrationFormDTO {
     private String lastName;
     @NotBlank
     private String phoneNumber;
+    @NotEmpty
+    private String role;
+    @NIP
+    private String nip;
+
+    public String getNip() {
+        return nip;
+    }
+
+    public void setNip(String nip) {
+        this.nip = nip;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 
     public String getPhoneNumber() {
         return phoneNumber;
