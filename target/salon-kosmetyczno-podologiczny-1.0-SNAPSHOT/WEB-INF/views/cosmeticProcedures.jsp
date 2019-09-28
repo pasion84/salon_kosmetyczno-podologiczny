@@ -22,9 +22,9 @@
 <%--        <a class="dropdown-item" href="#">Separated link</a>--%>
 <%--    </div>--%>
 <%--</div>--%>
-            <a href="<c:url value="/procedures/create"/>">
-                <button>dodaj nowy zabieg</button>
-            </a>
+<a href="<c:url value="/procedures/create"/>">
+    <button>dodaj nowy zabieg</button>
+</a>
 
 <table class="table table-hover">
     <thead>

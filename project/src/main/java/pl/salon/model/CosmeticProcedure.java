@@ -2,7 +2,10 @@ package pl.salon.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "cosmetic_procedures")
@@ -14,9 +17,19 @@ public class CosmeticProcedure extends AbstractEntity {
     private Double price;
     @Column(nullable = false, name = "procedure_duration")
     private Integer durationOfProcedureInMinutes;
+    @ManyToMany(mappedBy = "cosmeticProcedure")
+    private List<PlannedProcedure> plannedProcedure = new ArrayList<>();
 
     public String getName() {
         return name;
+    }
+
+    public List<PlannedProcedure> getPlannedProcedure() {
+        return plannedProcedure;
+    }
+
+    public void setPlannedProcedure(List<PlannedProcedure> plannedProcedure) {
+        this.plannedProcedure = plannedProcedure;
     }
 
     public void setName(String name) {

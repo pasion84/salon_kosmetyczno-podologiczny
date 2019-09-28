@@ -10,7 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="header.jsp"/>
 <br>
-<form:form method="delete" modelAttribute="deleteProcedure">
+<form:form method="get" modelAttribute="deleteProcedure" action="deleteProcedure">
     <form:hidden path="id"/>
     <div class="card text-center">
         <div class="card-header">
@@ -20,7 +20,9 @@
             <h5 class="card-title">Czy usunąć zabieg ${deleteProcedure.name}?</h5>
             <p class="card-text">Zabieg o id ${deleteProcedure.id}, nazwie ${deleteProcedure.name},
                 cenie ${deleteProcedure.price} zostanie usunięty</p>
-            <input type="submit" class="btn btn-danger" value="Usuń">
+            <a href="<c:url value="/procedures/deleteProcedure"/> ">
+                <button class="btn btn-danger">Usuń</button>
+            </a>
             <a href="<c:url value="/procedures"/> ">
                 <button class="btn btn-primary">powrót do listy</button>
             </a>

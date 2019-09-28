@@ -11,5 +11,5 @@ public interface CosmeticProcedureRepository extends JpaRepository<CosmeticProce
 
     CosmeticProcedure findCosmeticProcedureById(Long id);
 
-    CosmeticProcedure deleteCosmeticProcedureById(Long id);
+    void deleteCosmeticProcedureById(Long id);
 }

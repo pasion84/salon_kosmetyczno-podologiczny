@@ -9,8 +9,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="header.jsp"/>
 <br>
-<h1> witaj ${clientname} w naszym salonie</h1>
-<br>
 <a href="<c:url value="/procedures"/>">
     <button type="button" class="btn btn-primary">Lista zabiegów</button>
 </a>

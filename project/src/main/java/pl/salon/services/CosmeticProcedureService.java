@@ -33,7 +33,7 @@ public class CosmeticProcedureService {
         return cosmeticProcedureRepository.findCosmeticProcedureById(id);
     }
 
-    public CosmeticProcedure deleteCosmeticProcedureById(Long id) {
-        return cosmeticProcedureRepository.deleteCosmeticProcedureById(id);
+    public void deleteCosmeticProcedureById(Long id) {
+        cosmeticProcedureRepository.deleteCosmeticProcedureById(id);
     }
 }

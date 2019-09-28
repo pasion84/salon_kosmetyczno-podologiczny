@@ -1,9 +1,15 @@
 package pl.salon.model;
 
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.pl.NIP;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "clients")
@@ -20,6 +26,48 @@ public class Client extends AbstractEntity {
     @Column(unique = true, nullable = false, name = "phone")
     @Pattern(regexp = "[1-9][0-9]{8}", message = "nr telefonu składa się z 9 liczb")
     private String phoneNumber;
+    @OneToMany(mappedBy = "client")
+    private List<PlannedProcedure> plannedProcedure = new ArrayList<>();
+    @Column(name = "salary", nullable = false)
+    private Double salaryPerHour;
+    @Column(name = "address")
+    private String address;
+    @NIP
+    @NotBlank
+    private String nip;
+
+
+    public Double getSalaryPerHour() {
+        return salaryPerHour;
+    }
+
+    public void setSalaryPerHour(Double salaryPerHour) {
+        this.salaryPerHour = salaryPerHour;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getNip() {
+        return nip;
+    }
+
+    public void setNip(String nip) {
+        this.nip = nip;
+    }
+
+    public List<PlannedProcedure> getPlannedProcedure() {
+        return plannedProcedure;
+    }
+
+    public void setPlannedProcedure(List<PlannedProcedure> plannedProcedure) {
+        this.plannedProcedure = plannedProcedure;
+    }
 
     public String getEmail() {
         return email;
@@ -69,6 +117,10 @@ public class Client extends AbstractEntity {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
+                ", plannedProcedure=" + plannedProcedure +
+                ", salaryPerHour=" + salaryPerHour +
+                ", address='" + address + '\'' +
+                ", nip='" + nip + '\'' +
                 "} " + super.toString();
     }
 }
