@@ -22,10 +22,11 @@
 <%--        <a class="dropdown-item" href="#">Separated link</a>--%>
 <%--    </div>--%>
 <%--</div>--%>
-<a href="<c:url value="/procedures/create"/>">
-    <button>dodaj nowy zabieg</button>
-</a>
-
+<%--<a href="<c:url value="/admin/procedures/create"/>">--%>
+<%--    <button>dodaj nowy zabieg</button>--%>
+<%--</a>--%>
+<h4>wybierz zabieg na który chcesz się umówić</h4>
+<br>
 <table class="table table-hover">
     <thead>
     <tr>
@@ -33,7 +34,8 @@
         <th scope="col">nazwa zabiegu</th>
         <th scope="col">czas trwania</th>
         <th scope="col">cena w zł</th>
-        <th scope="col">akcje</th>
+        <th scope="col">dodaj zabieg</th>
+
     </tr>
     </thead>
     <tbody>
@@ -46,18 +48,20 @@
         <td>${procedureList.durationOfProcedureInMinutes}</td>
         <td>${procedureList.price}</td>
         <td>
-            <a href="<c:url value="/procedures/create"><c:param name="id" value="${procedureList.id}"/></c:url> ">
-                <button style="color: blue">edycja</button>
-            </a>
-            <a href="<c:url value="/procedures/delete"><c:param name="id" value="${procedureList.id}"/></c:url> ">
-                <button>usuń</button>
-            </a>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    dodaj zabieg
+                </label>
+            </div>
         </td>
     </tr>
     </c:forEach>
     </tbody>
 </table>
-
+<a href="<c:url value="/client/workers"/> ">
+    <button type="button" class="btn btn-primary btn-lg" slot="center">wybierz pracownika</button>
+</a>
 <br>
 <jsp:include page="footer.jsp"/>
 

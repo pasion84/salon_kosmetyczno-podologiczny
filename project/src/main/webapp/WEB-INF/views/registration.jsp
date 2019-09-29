@@ -44,6 +44,7 @@
 Rola:
 <form:select path="role">
 <form:option value="ROLE_ADMIN">ADMIN</form:option>
+<form:option value="ROLE_WORKER">PRACOWNIK</form:option>
 <form:option value="ROLE_USER">KLIENT</form:option>
 </form:select>
     <form:errors path="role"/>

@@ -27,7 +27,7 @@ public class RegistrationService {
     }
 
     public boolean isAdmin(String email) {
-        return clientRepository.findByEmail(email).getRole().equals("ROLE_ADMIN") ? true : false;
+        return clientRepository.findByEmail(email).getRole().equals("ROLE_ADMIN");
     }
 
     public void registerClient(RegistrationFormDTO data) {

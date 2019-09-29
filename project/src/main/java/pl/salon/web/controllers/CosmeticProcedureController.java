@@ -7,26 +7,31 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.salon.dto.CosmeticProcedureFormDTO;
 import pl.salon.services.CosmeticProcedureService;
+import pl.salon.services.RegistrationService;
 
 import javax.validation.Valid;
+import java.security.Principal;
 
 @Controller
-@RequestMapping("/procedures")
+@RequestMapping({"/procedures", "/admin/procedures"})
 public class CosmeticProcedureController {
 
     private CosmeticProcedureService cosmeticProcedureService;
+    private RegistrationService registrationService;
 
-    public CosmeticProcedureController(CosmeticProcedureService cosmeticProcedureService) {
+    public CosmeticProcedureController(CosmeticProcedureService cosmeticProcedureService, RegistrationService registrationService) {
         this.cosmeticProcedureService = cosmeticProcedureService;
+        this.registrationService = registrationService;
     }
 
-    @GetMapping("/create")
+
+    @GetMapping("create")
     public String prepareProceduresPage(Model model) {
         model.addAttribute("procedure", new CosmeticProcedureFormDTO());
         return "addCosmeticProcedure";
     }
 
-    @PostMapping("/create")
+    @PostMapping("create")
     public String processProceduresPage(@ModelAttribute("procedure") @Valid CosmeticProcedureFormDTO cosmeticProcedureFormDTO, BindingResult result) {
         if (result.hasErrors()) return "addCosmeticProcedure";
         if (cosmeticProcedureFormDTO.getName().isEmpty()) {
@@ -45,21 +50,24 @@ public class CosmeticProcedureController {
         return "redirect:/";
     }
 
-    @GetMapping("/delete")
+    @GetMapping("delete")
     public String prepareDeleteProcedurePage(Model model, Long id) {
         model.addAttribute("deleteProcedure", cosmeticProcedureService.findCosmeticProcedureById(id));
         return "deleteCosmeticProcedure";
     }
 
-    @GetMapping("/deleteProcedure")
+    @GetMapping("deleteProcedure")
     public String processDeleteProcedurePage(Long id) {
         cosmeticProcedureService.deleteCosmeticProcedureById(id);
         return "redirect:/";
     }
 
     @GetMapping
-    public String prepareProcedureListPage(Model model) {
+    public String prepareProcedureListPage(Model model, Principal principal) {
         model.addAttribute("procedureList", cosmeticProcedureService.findAllCosmeticProcedures());
+        if (registrationService.isAdmin(principal.getName())) {
+            return "adminCosmeticProcedures";
+        }
         return "cosmeticProcedures";
     }
 }

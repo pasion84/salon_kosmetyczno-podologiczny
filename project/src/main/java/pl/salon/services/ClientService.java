@@ -15,8 +15,14 @@ public class ClientService {
     }
 
     private ClientRepository clientRepository;
+    private Client client = new Client();
 
     public List<Client> findAllClients() {
         return clientRepository.findAll();
     }
+
+    public List<Client> findAllWorkers(String role) {
+        return clientRepository.findAllByRole(client.getRole());
+    }
+
 }

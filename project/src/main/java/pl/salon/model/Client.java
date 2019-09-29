@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.pl.NIP;
 
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,6 +36,30 @@ public class Client extends AbstractEntity {
     @NotEmpty
     @Column(name = "role")
     private String role;
+    @Column(name = "start_of_work")
+    private LocalTime startingTime;
+    @Column(name = "end_of_work")
+    private LocalTime finishingTime;
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public LocalTime getStartingTime() {
+        return startingTime;
+    }
+
+    public void setStartingTime(LocalTime startingTime) {
+        this.startingTime = startingTime;
+    }
+
+    public LocalTime getFinishingTime() {
+        return finishingTime;
+    }
+
+    public void setFinishingTime(LocalTime finishingTime) {
+        this.finishingTime = finishingTime;
+    }
 
     public String getRole() {
         return role;
@@ -128,6 +153,9 @@ public class Client extends AbstractEntity {
                 ", salaryPerHour=" + salaryPerHour +
                 ", address='" + address + '\'' +
                 ", nip='" + nip + '\'' +
+                ", role='" + role + '\'' +
+                ", startingTime=" + startingTime +
+                ", finishingTime=" + finishingTime +
                 "} " + super.toString();
     }
 }

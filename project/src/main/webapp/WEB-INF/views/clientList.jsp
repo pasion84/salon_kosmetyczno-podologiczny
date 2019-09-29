@@ -18,6 +18,7 @@
         <th scope="col">Nazwisko</th>
         <th scope="col">email</th>
         <th scope="col">nr telefonu</th>
+        <th scope="col">rola</th>
         <th scope="col">akcje</th>
     </tr>
     </thead>
@@ -31,6 +32,7 @@
         <td>${clients.lastName}</td>
         <td>${clients.email}</td>
         <td>${clients.phoneNumber}</td>
+        <td>${clients.role}</td>
         <td>
             <a href="<c:url value="/procedures/create"><c:param name="id" value="${clients.id}"/></c:url> ">
                 <button style="color: blue">edycja</button>
