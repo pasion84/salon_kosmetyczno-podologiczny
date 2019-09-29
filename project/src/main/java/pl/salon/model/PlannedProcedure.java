@@ -15,7 +15,16 @@ public class PlannedProcedure extends AbstractEntity {
     private Client client;
     @Column(name = "date")
     private LocalDateTime dateAndTimeOfProcedure;
+    @Column(name = "created_time")
+    private LocalDateTime createdTime;
 
+    public LocalDateTime getCreatedTime() {
+        return createdTime;
+    }
+
+    public void setCreatedTime(LocalDateTime createdTime) {
+        this.createdTime = createdTime;
+    }
 
     public List<CosmeticProcedure> getCosmeticProcedure() {
         return cosmeticProcedure;
@@ -48,6 +57,7 @@ public class PlannedProcedure extends AbstractEntity {
                 "cosmeticProcedure=" + cosmeticProcedure +
                 ", client=" + client +
                 ", dateAndTimeOfProcedure=" + dateAndTimeOfProcedure +
+                ", createdTime=" + createdTime +
                 "} " + super.toString();
     }
 }

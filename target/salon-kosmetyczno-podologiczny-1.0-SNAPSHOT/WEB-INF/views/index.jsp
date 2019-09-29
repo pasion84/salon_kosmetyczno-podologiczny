@@ -12,6 +12,5 @@
 <a href="<c:url value="/procedures"/>">
     <button type="button" class="btn btn-primary">Lista zabiegów</button>
 </a>
-
 <br>
 <jsp:include page="footer.jsp"/>
