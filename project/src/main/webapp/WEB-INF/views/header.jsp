@@ -16,6 +16,8 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <%--    fontawesome.com--%>
     <script src="https://kit.fontawesome.com/f84d87b17f.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="${mainURL}resources/css/simple-calendar.css">
 
 </head>
 

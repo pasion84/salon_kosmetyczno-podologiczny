@@ -66,5 +66,44 @@
             <artifactId>spring-data-jpa</artifactId>
             <version>1.11.23.RELEASE</version>
         </dependency>
+        <!--potrzebujemy tego żeby przeksztalcać dane do jsona-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.0.pr2</version>
+        </dependency>
+
+        <!--        a tutaj potrzebujemy tego do wgrywania plików-->
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.6</version>
+        </dependency>
+
+        <!-- potrzebujemy tego do Jsona-->
+        <dependency>
+            <groupId>javax.json.bind</groupId>
+            <artifactId>javax.json.bind-api</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.eclipse</groupId>
+            <artifactId>yasson</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.json</artifactId>
+            <version>1.1</version>
+        </dependency>
+        <!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.webjars/jquery &ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.webjars</groupId>-->
+        <!--            <artifactId>jquery</artifactId>-->
+        <!--            <version>3.4.1</version>-->
+        <!--        </dependency>-->
     </dependencies>
 </project>

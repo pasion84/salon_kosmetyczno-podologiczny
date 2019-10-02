@@ -6,9 +6,12 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.salon.dto.CosmeticProcedureFormDTO;
+import pl.salon.dto.PlannedProcedureDTO;
+import pl.salon.repositories.ClientRepository;
 import pl.salon.services.CosmeticProcedureService;
 import pl.salon.services.RegistrationService;
 
+import javax.jws.WebParam;
 import javax.validation.Valid;
 import java.security.Principal;
 
@@ -18,12 +21,13 @@ public class CosmeticProcedureController {
 
     private CosmeticProcedureService cosmeticProcedureService;
     private RegistrationService registrationService;
+    private ClientRepository clientRepository;
 
-    public CosmeticProcedureController(CosmeticProcedureService cosmeticProcedureService, RegistrationService registrationService) {
+    public CosmeticProcedureController(CosmeticProcedureService cosmeticProcedureService, RegistrationService registrationService, ClientRepository clientRepository) {
         this.cosmeticProcedureService = cosmeticProcedureService;
         this.registrationService = registrationService;
+        this.clientRepository = clientRepository;
     }
-
 
     @GetMapping("create")
     public String prepareProceduresPage(Model model) {
@@ -70,4 +74,19 @@ public class CosmeticProcedureController {
         }
         return "cosmeticProcedures";
     }
+
+    @GetMapping("add")
+    public String preparePlanNewProcedureForClient(Model model) {
+        model.addAttribute("addClientProcedure", new PlannedProcedureDTO());
+        model.addAttribute("procedureList", cosmeticProcedureService.findAllCosmeticProcedures());
+        model.addAttribute("allWorkers", clientRepository.findAllByRole("ROLE_WORKER"));
+        return "addProcedureToClient";
+    }
+
+    @PostMapping("add")
+    public String processPlanNewProcedureForClient(@ModelAttribute("procedure") @Valid PlannedProcedureDTO plannedProcedureDTO) {
+        cosmeticProcedureService.addNewPlannedProcedureForClient(plannedProcedureDTO);
+        return "redirect:/";
+    }
+
 }

@@ -15,7 +15,6 @@
     <thead>
     <tr>
         <th scope="col">Imię</th>
-        <th scope="col">Nazwisko</th>
         <th scope="col">akcje</th>
     </tr>
     </thead>
@@ -25,16 +24,8 @@
     </tr>
     <tr>
         <td>${workers.firstName}</td>
-        <td>${workers.lastName}</td>
         <td>
             <form:radiobutton path="empty" value="${workers.id}" label=" - wybierz"/>
-                <%--            <div class="form-check">--%>
-                <%--                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"--%>
-                <%--                       checked>--%>
-                <%--                <label class="form-check-label" for="exampleRadios1">--%>
-                <%--                    wybierz--%>
-                <%--                </label>--%>
-                <%--            </div>--%>
         </td>
     </tr>
     </c:forEach>
@@ -42,4 +33,7 @@
 </table>
 </form:form>
 <br>
+<a href="<c:url value="/procedures/add"/> ">
+    <button type="button" class="btn btn-primary btn-lg" slot="center">umów się na wizytę</button>
+</a>
 <jsp:include page="footer.jsp"/>
