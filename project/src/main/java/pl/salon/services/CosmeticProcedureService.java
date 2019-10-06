@@ -4,12 +4,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.salon.dto.CosmeticProcedureFormDTO;
 import pl.salon.dto.PlannedProcedureDTO;
+import pl.salon.dto.RegistrationFormDTO;
+import pl.salon.model.Client;
 import pl.salon.model.CosmeticProcedure;
 import pl.salon.model.PlannedProcedure;
+import pl.salon.repositories.ClientRepository;
 import pl.salon.repositories.CosmeticProcedureRepository;
 import pl.salon.repositories.PlannedProcedureRepository;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -17,10 +21,14 @@ import java.util.List;
 public class CosmeticProcedureService {
     private CosmeticProcedureRepository cosmeticProcedureRepository;
     private PlannedProcedureRepository plannedProcedureRepository;
+    private ClientRepository clientRepository;
+    private ClientService clientService;
 
-    public CosmeticProcedureService(CosmeticProcedureRepository cosmeticProcedureRepository, PlannedProcedureRepository plannedProcedureRepository) {
+    public CosmeticProcedureService(CosmeticProcedureRepository cosmeticProcedureRepository, PlannedProcedureRepository plannedProcedureRepository, ClientRepository clientRepository, ClientService clientService) {
         this.cosmeticProcedureRepository = cosmeticProcedureRepository;
         this.plannedProcedureRepository = plannedProcedureRepository;
+        this.clientRepository = clientRepository;
+        this.clientService = clientService;
     }
 
 
@@ -36,20 +44,25 @@ public class CosmeticProcedureService {
         return cosmeticProcedureRepository.findAll();
     }
 
-    public CosmeticProcedure findCosmeticProcedureById(Long id) {
-        return cosmeticProcedureRepository.findCosmeticProcedureById(id);
+    public CosmeticProcedure findById(Long id) {
+        return cosmeticProcedureRepository.findById(id);
     }
 
     public void deleteCosmeticProcedureById(Long id) {
         cosmeticProcedureRepository.deleteCosmeticProcedureById(id);
     }
 
-    public void addNewPlannedProcedureForClient(PlannedProcedureDTO data) {
+
+    public void addNewPlannedProcedureForClient(PlannedProcedureDTO data, String email) {
+
         PlannedProcedure plannedProcedure = new PlannedProcedure();
-        plannedProcedure.setCosmeticProcedure(data.getCosmeticProcedure());
-        plannedProcedure.setClient(data.getClient());
+        plannedProcedure.setClient(clientRepository.findByEmail(email));
+        plannedProcedure.setId(data.getCosmeticProcedureId());
+        plannedProcedure.setClient(clientService.findClientByIdAndRoleWhereRoleIsUser(data.getClientId()));
+        plannedProcedure.setWorker(clientService.findClientByIdAndRoleWhereRoleIsWorker(data.getWorkerId()));
         plannedProcedure.setCreatedTime(LocalDateTime.now());
         plannedProcedure.setDateAndTimeOfProcedure(LocalDateTime.now());
+        plannedProcedure.setCosmeticProcedure(cosmeticProcedureRepository.findById(data.getCosmeticProcedureId()));
         plannedProcedureRepository.save(plannedProcedure);
     }
 }

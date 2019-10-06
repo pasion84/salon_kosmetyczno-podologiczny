@@ -8,6 +8,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<c:url value="/" var="mainURL"/>
+
 <html>
 <head>
     <title>witaj w salonie Sanita</title>
@@ -16,9 +18,20 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <%--    fontawesome.com--%>
     <script src="https://kit.fontawesome.com/f84d87b17f.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Playfair+Display&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="${mainURL}resources/css/simple-calendar.css">
+    <link rel="stylesheet" href="${mainURL}resources/css/body.css">
 
+    <script src="${mainURL}resources/js/setInputFilter.js"></script>
+    <link rel="stylesheet" href="${mainURL}resources/css/simple-calendar.css">
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            /*text-shadow: 1px 1px 1px #aaa;*/
+        }
+
+    </style>
 </head>
 
 <body>

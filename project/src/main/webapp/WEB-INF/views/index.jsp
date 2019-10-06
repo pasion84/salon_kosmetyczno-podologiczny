@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: grzesiek
@@ -18,6 +19,7 @@
 <a href="<c:url value="/procedures/add"/>">
     <button type="button" class="btn btn-primary">umów się na wizytę</button>
 </a>
+
 <br>
 <div class="col-sm-3">
     <div id="container" class="calendar-container"></div>

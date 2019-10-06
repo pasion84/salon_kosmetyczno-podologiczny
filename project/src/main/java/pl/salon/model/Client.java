@@ -1,6 +1,5 @@
 package pl.salon.model;
 
-import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.pl.NIP;
 
@@ -45,7 +44,7 @@ public class Client extends AbstractEntity {
         this.role = role;
     }
 
-    public LocalTime getStartingTime() {
+    public LocalTime getStartingTime(LocalTime startWork) {
         return startingTime;
     }
 
@@ -141,21 +140,4 @@ public class Client extends AbstractEntity {
         this.phoneNumber = phoneNumber;
     }
 
-    @Override
-    public String toString() {
-        return "Client{" +
-                "email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", plannedProcedure=" + plannedProcedure +
-                ", salaryPerHour=" + salaryPerHour +
-                ", address='" + address + '\'' +
-                ", nip='" + nip + '\'' +
-                ", role='" + role + '\'' +
-                ", startingTime=" + startingTime +
-                ", finishingTime=" + finishingTime +
-                "} " + super.toString();
-    }
 }

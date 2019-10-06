@@ -33,10 +33,4 @@ public abstract class AbstractEntity {
         return Objects.hash(id);
     }
 
-    @Override
-    public String toString() {
-        return "AbstractEntity{" +
-                "id=" + id +
-                '}';
-    }
 }

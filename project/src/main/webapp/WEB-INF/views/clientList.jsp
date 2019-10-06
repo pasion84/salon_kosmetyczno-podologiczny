@@ -34,7 +34,7 @@
         <td>${clients.phoneNumber}</td>
         <td>${clients.role}</td>
         <td>
-            <a href="<c:url value="/procedures/create"><c:param name="id" value="${clients.id}"/></c:url> ">
+            <a href="<c:url value="/client/edit"><c:param name="id" value="${clients.id}"/></c:url> ">
                 <button style="color: blue">edycja</button>
             </a>
         </td>

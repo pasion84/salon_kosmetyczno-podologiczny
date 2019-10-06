@@ -56,5 +56,6 @@ Rola:
 </p>
 </form:form>
 <br>
+</body>
 <jsp:include page="footer.jsp"/>
 

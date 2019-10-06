@@ -1,13 +1,18 @@
 package pl.salon.web.controllers;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.salon.dto.CosmeticProcedureFormDTO;
+import pl.salon.dto.LoginFormDTO;
 import pl.salon.dto.PlannedProcedureDTO;
+import pl.salon.dto.RegistrationFormDTO;
+import pl.salon.model.Client;
 import pl.salon.repositories.ClientRepository;
+import pl.salon.services.ClientService;
 import pl.salon.services.CosmeticProcedureService;
 import pl.salon.services.RegistrationService;
 
@@ -22,11 +27,19 @@ public class CosmeticProcedureController {
     private CosmeticProcedureService cosmeticProcedureService;
     private RegistrationService registrationService;
     private ClientRepository clientRepository;
+    private ClientService clientService;
 
-    public CosmeticProcedureController(CosmeticProcedureService cosmeticProcedureService, RegistrationService registrationService, ClientRepository clientRepository) {
+    public CosmeticProcedureController(CosmeticProcedureService cosmeticProcedureService, RegistrationService registrationService, ClientRepository clientRepository, ClientService clientService) {
         this.cosmeticProcedureService = cosmeticProcedureService;
         this.registrationService = registrationService;
         this.clientRepository = clientRepository;
+        this.clientService = clientService;
+    }
+
+    @ModelAttribute("principal")
+    public Client principalToClient() {
+        Principal principal = SecurityContextHolder.getContext().getAuthentication();
+        return clientService.findClientByEmail(principal.getName());
     }
 
     @GetMapping("create")
@@ -56,7 +69,7 @@ public class CosmeticProcedureController {
 
     @GetMapping("delete")
     public String prepareDeleteProcedurePage(Model model, Long id) {
-        model.addAttribute("deleteProcedure", cosmeticProcedureService.findCosmeticProcedureById(id));
+        model.addAttribute("deleteProcedure", cosmeticProcedureService.findById(id));
         return "deleteCosmeticProcedure";
     }
 
@@ -76,16 +89,18 @@ public class CosmeticProcedureController {
     }
 
     @GetMapping("add")
-    public String preparePlanNewProcedureForClient(Model model) {
+    public String preparePlanNewProcedureForClient(Model model, @RequestParam(required = false) Long id, Principal principal) {
         model.addAttribute("addClientProcedure", new PlannedProcedureDTO());
         model.addAttribute("procedureList", cosmeticProcedureService.findAllCosmeticProcedures());
         model.addAttribute("allWorkers", clientRepository.findAllByRole("ROLE_WORKER"));
+        model.addAttribute("clientService", clientService.findClientByEmail(principal.getName()));
+        model.addAttribute("client", clientService.findClientByIdAndRoleWhereRoleIsUser(id));
         return "addProcedureToClient";
     }
 
     @PostMapping("add")
-    public String processPlanNewProcedureForClient(@ModelAttribute("procedure") @Valid PlannedProcedureDTO plannedProcedureDTO) {
-        cosmeticProcedureService.addNewPlannedProcedureForClient(plannedProcedureDTO);
+    public String processPlanNewProcedureForClient(@ModelAttribute("plannedProcedureDTO") @Valid PlannedProcedureDTO plannedProcedureDTO, @RequestParam(required = false) Long id, Principal principal) {
+        cosmeticProcedureService.addNewPlannedProcedureForClient(plannedProcedureDTO, principal.getName());
         return "redirect:/";
     }
 

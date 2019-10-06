@@ -8,15 +8,29 @@ import java.util.List;
 @Entity
 @Table(name = "planned_procedures")
 public class PlannedProcedure extends AbstractEntity {
-    @ManyToMany
-    @Column(name = "procedure")
-    private List<CosmeticProcedure> cosmeticProcedure = new ArrayList<>();
+    @ManyToOne
+    private CosmeticProcedure cosmeticProcedure;
     @ManyToOne
     private Client client;
     @Column(name = "date")
     private LocalDateTime dateAndTimeOfProcedure;
     @Column(name = "created_time")
     private LocalDateTime createdTime;
+    @ManyToOne
+    private Client worker;
+
+//    public List<PlannedProcedure> addProcedureToSchedule(CosmeticProcedure cosmeticProcedureList){
+//        List<PlannedProcedure> plannedProcedureList = new ArrayList<>();
+//        return plannedProcedureList.add(cosmeticProcedureList.getId());
+//    }
+
+    public Client getWorker() {
+        return worker;
+    }
+
+    public void setWorker(Client worker) {
+        this.worker = worker;
+    }
 
     public LocalDateTime getCreatedTime() {
         return createdTime;
@@ -26,11 +40,20 @@ public class PlannedProcedure extends AbstractEntity {
         this.createdTime = createdTime;
     }
 
-    public List<CosmeticProcedure> getCosmeticProcedure() {
+//    public List<CosmeticProcedure> getCosmeticProcedure() {
+//        return cosmeticProcedure;
+//    }
+//
+//    public void setCosmeticProcedure(List<CosmeticProcedure> cosmeticProcedure) {
+//        this.cosmeticProcedure = cosmeticProcedure;
+//    }
+
+
+    public CosmeticProcedure getCosmeticProcedure() {
         return cosmeticProcedure;
     }
 
-    public void setCosmeticProcedure(List<CosmeticProcedure> cosmeticProcedure) {
+    public void setCosmeticProcedure(CosmeticProcedure cosmeticProcedure) {
         this.cosmeticProcedure = cosmeticProcedure;
     }
 
@@ -41,7 +64,9 @@ public class PlannedProcedure extends AbstractEntity {
     public void setClient(Client client) {
         this.client = client;
     }
-
+//    public List<CosmeticProcedure> add(){
+//        cosmeticProcedure.add(cosmeticProcedure.get(CosmeticProcedure.class))
+//    }
 
     public LocalDateTime getDateAndTimeOfProcedure() {
         return dateAndTimeOfProcedure;
@@ -51,13 +76,4 @@ public class PlannedProcedure extends AbstractEntity {
         this.dateAndTimeOfProcedure = dateAndTimeOfProcedure;
     }
 
-    @Override
-    public String toString() {
-        return "PlannedProcedure{" +
-                "cosmeticProcedure=" + cosmeticProcedure +
-                ", client=" + client +
-                ", dateAndTimeOfProcedure=" + dateAndTimeOfProcedure +
-                ", createdTime=" + createdTime +
-                "} " + super.toString();
-    }
 }

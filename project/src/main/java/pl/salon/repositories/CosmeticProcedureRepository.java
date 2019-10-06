@@ -9,7 +9,12 @@ public interface CosmeticProcedureRepository extends JpaRepository<CosmeticProce
     @Override
     List<CosmeticProcedure> findAll();
 
-    CosmeticProcedure findCosmeticProcedureById(Long id);
+    CosmeticProcedure findById(Long id);
 
     void deleteCosmeticProcedureById(Long id);
+
+    List<CosmeticProcedure> findAllById(Long id);
+
+    List<CosmeticProcedure> findCosmeticProcedureById(Long id);
+
 }
