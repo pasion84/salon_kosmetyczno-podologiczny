@@ -16,7 +16,7 @@
     <button type="button" class="btn btn-primary">Lista zabiegów</button>
 </a>
 <br>
-<a href="<c:url value="/procedures/add"/>">
+<a href="<c:url value="/procedures/planProcedureToClient"/>">
     <button type="button" class="btn btn-primary">umów się na wizytę</button>
 </a>
 
@@ -31,6 +31,5 @@
         });
     </script>
 </div>
-
 <br>
 <jsp:include page="footer.jsp"/>

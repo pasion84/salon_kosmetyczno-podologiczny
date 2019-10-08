@@ -53,16 +53,17 @@ public class CosmeticProcedureService {
     }
 
 
-    public void addNewPlannedProcedureForClient(PlannedProcedureDTO data, String email) {
+    public void addNewPlannedProcedureForClient(PlannedProcedureDTO data, Long id, String email) {
 
         PlannedProcedure plannedProcedure = new PlannedProcedure();
+        clientService.findClientById(id);
         plannedProcedure.setClient(clientRepository.findByEmail(email));
         plannedProcedure.setId(data.getCosmeticProcedureId());
-        plannedProcedure.setClient(clientService.findClientByIdAndRoleWhereRoleIsUser(data.getClientId()));
+        plannedProcedure.setClient(clientService.findClientByIdAndRoleWhereRoleIsUser(data.getWorkerId()));
         plannedProcedure.setWorker(clientService.findClientByIdAndRoleWhereRoleIsWorker(data.getWorkerId()));
         plannedProcedure.setCreatedTime(LocalDateTime.now());
         plannedProcedure.setDateAndTimeOfProcedure(LocalDateTime.now());
-        plannedProcedure.setCosmeticProcedure(cosmeticProcedureRepository.findById(data.getCosmeticProcedureId()));
+        plannedProcedure.setCosmeticProcedureList(cosmeticProcedureRepository.findAllById(data.getCosmeticProcedureId()));
         plannedProcedureRepository.save(plannedProcedure);
     }
 }

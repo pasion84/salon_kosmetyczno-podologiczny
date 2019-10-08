@@ -10,11 +10,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="header.jsp"/>
 <br>
-<form:form method="post" modelAttribute="principal">
+<form:form method="post" modelAttribute="clientService">
 
-    <form:hidden path="email" value="${client.id}"/>
+    <form:hidden path="id" value="${client.id}"/>
 
-    <p>ssssssss + ${client.id} ${clientService.email} ${addClientProcedure.clientId} ${client.id}</p>
+    <p>ssssssss + ${client.id} ${clientService.email}  </p>
 
         <div class="form-group">
             <label for="exampleFormControlSelect1">Pracownik</label>
@@ -29,7 +29,7 @@
 
     <div class="form-group">
             <label for="exampleFormControlSelect2">Usługa</label>
-        <form:select path="plannedProcedure" multiple="form-control" id="exampleFormControlSelect2">
+        <form:select path="id" multiple="form-control" id="exampleFormControlSelect2">
                 <c:forEach items="${procedureList}" var="procedureList">
                     <form:checkbox path="id" value="${procedureList.id}"
                                    label="${procedureList.name}"/> || ${procedureList.price}<br>

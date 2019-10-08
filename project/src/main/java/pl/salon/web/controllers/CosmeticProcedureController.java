@@ -11,6 +11,7 @@ import pl.salon.dto.LoginFormDTO;
 import pl.salon.dto.PlannedProcedureDTO;
 import pl.salon.dto.RegistrationFormDTO;
 import pl.salon.model.Client;
+import pl.salon.model.PlannedProcedure;
 import pl.salon.repositories.ClientRepository;
 import pl.salon.services.ClientService;
 import pl.salon.services.CosmeticProcedureService;
@@ -88,19 +89,21 @@ public class CosmeticProcedureController {
         return "cosmeticProcedures";
     }
 
-    @GetMapping("add")
+    @GetMapping("planProcedureToClient")
     public String preparePlanNewProcedureForClient(Model model, @RequestParam(required = false) Long id, Principal principal) {
+        Client client = clientRepository.findClientById(id);
+        model.addAttribute("client", client);
         model.addAttribute("addClientProcedure", new PlannedProcedureDTO());
         model.addAttribute("procedureList", cosmeticProcedureService.findAllCosmeticProcedures());
         model.addAttribute("allWorkers", clientRepository.findAllByRole("ROLE_WORKER"));
         model.addAttribute("clientService", clientService.findClientByEmail(principal.getName()));
-        model.addAttribute("client", clientService.findClientByIdAndRoleWhereRoleIsUser(id));
         return "addProcedureToClient";
     }
 
-    @PostMapping("add")
-    public String processPlanNewProcedureForClient(@ModelAttribute("plannedProcedureDTO") @Valid PlannedProcedureDTO plannedProcedureDTO, @RequestParam(required = false) Long id, Principal principal) {
-        cosmeticProcedureService.addNewPlannedProcedureForClient(plannedProcedureDTO, principal.getName());
+    @PostMapping("planProcedureToClient")
+    public String processPlanNewProcedureForClient(@ModelAttribute("addClientProcedure") @Valid PlannedProcedureDTO plannedProcedureDTO, Principal principal, @RequestParam(required = false) Long id) {
+
+        cosmeticProcedureService.addNewPlannedProcedureForClient(plannedProcedureDTO, id, principal.getName());
         return "redirect:/";
     }
 

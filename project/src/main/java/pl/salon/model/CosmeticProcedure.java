@@ -14,8 +14,8 @@ public class CosmeticProcedure extends AbstractEntity {
     private Double price;
     @Column(nullable = false, name = "procedure_duration")
     private Integer durationOfProcedureInMinutes;
-    @OneToMany(mappedBy = "cosmeticProcedure")
-    private List<PlannedProcedure> plannedProcedure = new ArrayList<>();
+    @ManyToOne
+    private PlannedProcedure plannedProcedure;
 
     public String getName() {
         return name;
@@ -30,11 +30,11 @@ public class CosmeticProcedure extends AbstractEntity {
 //    }
 
 
-    public List<PlannedProcedure> getPlannedProcedure() {
+    public PlannedProcedure getPlannedProcedure() {
         return plannedProcedure;
     }
 
-    public void setPlannedProcedure(List<PlannedProcedure> plannedProcedure) {
+    public void setPlannedProcedure(PlannedProcedure plannedProcedure) {
         this.plannedProcedure = plannedProcedure;
     }
 

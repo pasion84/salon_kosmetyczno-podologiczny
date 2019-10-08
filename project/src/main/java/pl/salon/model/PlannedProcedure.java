@@ -8,8 +8,8 @@ import java.util.List;
 @Entity
 @Table(name = "planned_procedures")
 public class PlannedProcedure extends AbstractEntity {
-    @ManyToOne
-    private CosmeticProcedure cosmeticProcedure;
+    @OneToMany(mappedBy = "plannedProcedure")
+    private List<CosmeticProcedure> cosmeticProcedureList = new ArrayList<>();
     @ManyToOne
     private Client client;
     @Column(name = "date")
@@ -19,10 +19,6 @@ public class PlannedProcedure extends AbstractEntity {
     @ManyToOne
     private Client worker;
 
-//    public List<PlannedProcedure> addProcedureToSchedule(CosmeticProcedure cosmeticProcedureList){
-//        List<PlannedProcedure> plannedProcedureList = new ArrayList<>();
-//        return plannedProcedureList.add(cosmeticProcedureList.getId());
-//    }
 
     public Client getWorker() {
         return worker;
@@ -40,21 +36,12 @@ public class PlannedProcedure extends AbstractEntity {
         this.createdTime = createdTime;
     }
 
-//    public List<CosmeticProcedure> getCosmeticProcedure() {
-//        return cosmeticProcedure;
-//    }
-//
-//    public void setCosmeticProcedure(List<CosmeticProcedure> cosmeticProcedure) {
-//        this.cosmeticProcedure = cosmeticProcedure;
-//    }
-
-
-    public CosmeticProcedure getCosmeticProcedure() {
-        return cosmeticProcedure;
+    public List<CosmeticProcedure> getCosmeticProcedureList() {
+        return cosmeticProcedureList;
     }
 
-    public void setCosmeticProcedure(CosmeticProcedure cosmeticProcedure) {
-        this.cosmeticProcedure = cosmeticProcedure;
+    public void setCosmeticProcedureList(List<CosmeticProcedure> cosmeticProcedureList) {
+        this.cosmeticProcedureList = cosmeticProcedureList;
     }
 
     public Client getClient() {
@@ -64,10 +51,6 @@ public class PlannedProcedure extends AbstractEntity {
     public void setClient(Client client) {
         this.client = client;
     }
-//    public List<CosmeticProcedure> add(){
-//        cosmeticProcedure.add(cosmeticProcedure.get(CosmeticProcedure.class))
-//    }
-
     public LocalDateTime getDateAndTimeOfProcedure() {
         return dateAndTimeOfProcedure;
     }
