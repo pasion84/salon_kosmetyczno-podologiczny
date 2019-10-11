@@ -8,7 +8,7 @@ import java.util.List;
 @Entity
 @Table(name = "planned_procedures")
 public class PlannedProcedure extends AbstractEntity {
-    @OneToMany(mappedBy = "plannedProcedure")
+    @ManyToMany
     private List<CosmeticProcedure> cosmeticProcedureList = new ArrayList<>();
     @ManyToOne
     private Client client;
@@ -19,6 +19,10 @@ public class PlannedProcedure extends AbstractEntity {
     @ManyToOne
     private Client worker;
 
+
+    public void setListOfWorkers(List<Client> workerList) {
+        workerList.add(worker);
+    }
 
     public Client getWorker() {
         return worker;
@@ -58,5 +62,4 @@ public class PlannedProcedure extends AbstractEntity {
     public void setDateAndTimeOfProcedure(LocalDateTime dateAndTimeOfProcedure) {
         this.dateAndTimeOfProcedure = dateAndTimeOfProcedure;
     }
-
 }

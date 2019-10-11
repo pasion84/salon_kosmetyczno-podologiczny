@@ -10,7 +10,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="header.jsp"/>
 <br>
-<form:form method="post" modelAttribute="allWorkers">
+<form:form method="get" modelAttribute="allWorkers">
+    <%--    <form:hidden path="id"/>--%>
 <table class="table table-hover">
     <thead>
     <tr>
@@ -33,7 +34,7 @@
 </table>
 </form:form>
 <br>
-<a href="<c:url value="/procedures/add"/> ">
+<a href="<c:url value="/plannedProcedure/planProcedureToClient"/> ">
     <button type="button" class="btn btn-primary btn-lg" slot="center">umów się na wizytę</button>
 </a>
 <jsp:include page="footer.jsp"/>

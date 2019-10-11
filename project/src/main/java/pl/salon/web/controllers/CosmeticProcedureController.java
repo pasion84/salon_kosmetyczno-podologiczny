@@ -11,6 +11,7 @@ import pl.salon.dto.LoginFormDTO;
 import pl.salon.dto.PlannedProcedureDTO;
 import pl.salon.dto.RegistrationFormDTO;
 import pl.salon.model.Client;
+import pl.salon.model.CosmeticProcedure;
 import pl.salon.model.PlannedProcedure;
 import pl.salon.repositories.ClientRepository;
 import pl.salon.services.ClientService;
@@ -20,6 +21,8 @@ import pl.salon.services.RegistrationService;
 import javax.jws.WebParam;
 import javax.validation.Valid;
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping({"/procedures", "/admin/procedures"})
@@ -27,13 +30,11 @@ public class CosmeticProcedureController {
 
     private CosmeticProcedureService cosmeticProcedureService;
     private RegistrationService registrationService;
-    private ClientRepository clientRepository;
     private ClientService clientService;
 
-    public CosmeticProcedureController(CosmeticProcedureService cosmeticProcedureService, RegistrationService registrationService, ClientRepository clientRepository, ClientService clientService) {
+    public CosmeticProcedureController(CosmeticProcedureService cosmeticProcedureService, RegistrationService registrationService, ClientService clientService) {
         this.cosmeticProcedureService = cosmeticProcedureService;
         this.registrationService = registrationService;
-        this.clientRepository = clientRepository;
         this.clientService = clientService;
     }
 
@@ -87,24 +88,6 @@ public class CosmeticProcedureController {
             return "adminCosmeticProcedures";
         }
         return "cosmeticProcedures";
-    }
-
-    @GetMapping("planProcedureToClient")
-    public String preparePlanNewProcedureForClient(Model model, @RequestParam(required = false) Long id, Principal principal) {
-        Client client = clientRepository.findClientById(id);
-        model.addAttribute("client", client);
-        model.addAttribute("addClientProcedure", new PlannedProcedureDTO());
-        model.addAttribute("procedureList", cosmeticProcedureService.findAllCosmeticProcedures());
-        model.addAttribute("allWorkers", clientRepository.findAllByRole("ROLE_WORKER"));
-        model.addAttribute("clientService", clientService.findClientByEmail(principal.getName()));
-        return "addProcedureToClient";
-    }
-
-    @PostMapping("planProcedureToClient")
-    public String processPlanNewProcedureForClient(@ModelAttribute("addClientProcedure") @Valid PlannedProcedureDTO plannedProcedureDTO, Principal principal, @RequestParam(required = false) Long id) {
-
-        cosmeticProcedureService.addNewPlannedProcedureForClient(plannedProcedureDTO, id, principal.getName());
-        return "redirect:/";
     }
 
 }

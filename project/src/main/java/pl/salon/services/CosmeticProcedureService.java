@@ -40,6 +40,10 @@ public class CosmeticProcedureService {
         cosmeticProcedureRepository.save(cosmeticProcedure);
     }
 
+    public List<PlannedProcedure> findAllPlannedProceduresForClient(String email) {
+        return plannedProcedureRepository.findAllByClient_Email(email);
+    }
+
     public List<CosmeticProcedure> findAllCosmeticProcedures() {
         return cosmeticProcedureRepository.findAll();
     }
@@ -52,15 +56,11 @@ public class CosmeticProcedureService {
         cosmeticProcedureRepository.deleteCosmeticProcedureById(id);
     }
 
-
-    public void addNewPlannedProcedureForClient(PlannedProcedureDTO data, Long id, String email) {
-
+    public void addNewPlannedProcedureForClient(PlannedProcedureDTO data, String email) {
         PlannedProcedure plannedProcedure = new PlannedProcedure();
-        clientService.findClientById(id);
+        plannedProcedure.setListOfWorkers(clientService.findAllWorkers("ROLE-WORKER"));
         plannedProcedure.setClient(clientRepository.findByEmail(email));
-        plannedProcedure.setId(data.getCosmeticProcedureId());
-        plannedProcedure.setClient(clientService.findClientByIdAndRoleWhereRoleIsUser(data.getWorkerId()));
-        plannedProcedure.setWorker(clientService.findClientByIdAndRoleWhereRoleIsWorker(data.getWorkerId()));
+        plannedProcedure.setWorker(clientService.findClientById(data.getWorkerId()));
         plannedProcedure.setCreatedTime(LocalDateTime.now());
         plannedProcedure.setDateAndTimeOfProcedure(LocalDateTime.now());
         plannedProcedure.setCosmeticProcedureList(cosmeticProcedureRepository.findAllById(data.getCosmeticProcedureId()));

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.salon.dto.EditClientFormDTO;
+import pl.salon.dto.PlannedProcedureDTO;
 import pl.salon.dto.RegistrationFormDTO;
 import pl.salon.model.Client;
 import pl.salon.repositories.ClientRepository;

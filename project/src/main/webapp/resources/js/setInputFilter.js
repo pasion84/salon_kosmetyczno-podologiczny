@@ -15,6 +15,7 @@ function setInputFilter(textbox, inputFilter) {
 }
 
 
+
 // Install input filters.
 setInputFilter(document.getElementById("uintTextBox"), function (value) {
     return /^\d*$/.test(value);
@@ -40,3 +41,4 @@ setInputFilter(document.getElementById("extendedLatinTextBox"), function (value)
 setInputFilter(document.getElementById("hexTextBox"), function (value) {
     return /^[0-9a-f]*$/i.test(value);
 });
+

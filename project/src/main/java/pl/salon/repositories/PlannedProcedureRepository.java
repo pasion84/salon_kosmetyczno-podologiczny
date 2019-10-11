@@ -10,4 +10,6 @@ public interface PlannedProcedureRepository extends JpaRepository<PlannedProcedu
 
     PlannedProcedure getPlannedProcedureByClient_Id(Long id);
 
+    List<PlannedProcedure> findAllByClient_Email(String email);
+
 }
