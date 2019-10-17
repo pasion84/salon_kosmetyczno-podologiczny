@@ -17,6 +17,7 @@
     <br>
 <a href="<c:url value="/procedures"/>">
     <button type="button" class="btn btn-primary">Lista zabiegów</button>
+    <br>
 </a>
 <br>
     <a href="<c:url value="/plannedProcedure/planProcedureToClient"/>">
@@ -29,8 +30,6 @@
         <button type="button" class="btn btn-primary">zaplanowane wizyty</button>
     </a>
 
-    <br><br>
-    <h5>simple calendar</h5>
     <br><br>
     <div class="col-sm-3">
         <div id="container" class="calendar-container"></div>

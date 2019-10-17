@@ -10,23 +10,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="header.jsp"/>
 <c:url value="/" var="mainURL"/>
-<%--    date time picker style--%>
-<link rel="stylesheet" type="text/css" href="${mainURL}resources/css/datePicker.css"/>
-<script src="${mainURL}resources/js/setInputFilter.js"></script>
-<script src="${mainURL}resources/js/jquery.js"></script>
-<script src="${mainURL}resources/js/dateTimePicker.js"></script>
-<style type="text/css">
-    .custom-date-style {
-        background-color: red !important;
-    }
-
-    .input {
-    }
-
-    .input-wide {
-        width: 500px;
-    }
-</style>
 
 <main role="main" class="flex-shrink-0">
     <br>
@@ -40,36 +23,18 @@
             </c:forEach>
         </div>
 
-
+        <form:select path="cosmeticProcedure" itemValue="id" items="${cosmeticProcedureList}" multiple="true"
+                     itemLabel="name"/>
+        <br>
+        <%--        <h5>Wybierz datę i godzinę</h5>--%>
+        <%--        <input type="datetime-local" value="2019-10-12T13:16" id="datetimepicker3"/><br><br>--%>
         <div class="form-group">
-            <p>wybierz zabieg</p>
-            <c:forEach items="${cosmeticProcedureList}" var="procedureList" varStatus="status">
-                <form:radiobutton path="cosmeticProcedureId" value="${procedureList.id}"
-                                  label="${procedureList.name}"/> || ${procedureList.price}<br>
-            </c:forEach>
+            <label for="procedureTime">Data i godzina spotkania</label>
+            <form:input path="dateAndTimeOfProcedure" cssClass="form-control col-sm-6" id="procedureTime"
+                        type="datetime-local" value="${dateAndTimeOfProcedure}"/>
+            <form:errors path="dateAndTimeOfProcedure" cssClass="error" element="div"/>
         </div>
-        <h5>Wybierz datę i godzinę</h5>
-        <input type="text" value="" id="datetimepicker"/><br><br>
 
-
-        <script>
-
-            $.datetimepicker.setLocale('pl');
-            $('#datetimepicker_format').datetimepicker({
-                value: '2015/04/15 05:03',
-                format: $("#datetimepicker_format_value").val()
-            });
-            console.log($('#datetimepicker_format').datetimepicker('getValue'));
-            $("#datetimepicker_format_change").on("click", function (e) {
-                $("#datetimepicker_format").data('xdsoft_datetimepicker').setOptions({format: $("#datetimepicker_format_value").val()});
-            });
-            $("#datetimepicker_format_locale").on("change", function (e) {
-                $.datetimepicker.setLocale($(e.currentTarget).val());
-            });
-            $('.some_class').datetimepicker();
-            jQuery('#datetimepicker').datetimepicker();
-
-        </script>
 
         <p>
             <input type="submit" value="Zapisz zabieg">

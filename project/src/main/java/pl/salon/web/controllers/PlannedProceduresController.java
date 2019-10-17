@@ -50,7 +50,7 @@ public class PlannedProceduresController {
     @GetMapping("planProcedureToClient")
     public String preparePlanNewProcedureForClient(Model model, Principal principal) {
         DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
-        model.addAttribute("actualTime", LocalDateTime.now().format(inputFormatter));
+        model.addAttribute("dateAndTimeOfProcedure", LocalDateTime.now().format(inputFormatter));
         model.addAttribute("addClientProcedure", new PlannedProcedureDTO());
         model.addAttribute("procedureList", getCosmeticProcedureList());
         model.addAttribute("allWorkers", getWorkerList());
@@ -61,7 +61,6 @@ public class PlannedProceduresController {
 
     @PostMapping("planProcedureToClient")
     public String processPlanNewProcedureForClient(@ModelAttribute("addClientProcedure") @Valid PlannedProcedureDTO plannedProcedureDTO, Principal principal) {
-
         cosmeticProcedureService.addNewPlannedProcedureForClient(plannedProcedureDTO, principal.getName());
         return "redirect:/";
     }

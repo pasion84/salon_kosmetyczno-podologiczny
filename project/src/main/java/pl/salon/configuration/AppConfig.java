@@ -5,6 +5,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -12,6 +13,8 @@ import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import pl.salon.converters.CosmeticProcedureConverter;
 
 import javax.persistence.EntityManagerFactory;
 
@@ -22,7 +25,7 @@ import javax.persistence.EntityManagerFactory;
         value = EnableWebMvc.class))
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "pl.salon")
-public class AppConfig {
+public class AppConfig extends WebMvcConfigurerAdapter {
 
     //zarządzanie encjami
     @Bean
@@ -44,4 +47,13 @@ public class AppConfig {
         return new LocalValidatorFactoryBean();
     }
 
+    @Bean
+    public CosmeticProcedureConverter getCosmeticProcedureConverter() {
+        return new CosmeticProcedureConverter();
+    }
+
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+        registry.addConverter(getCosmeticProcedureConverter());
+    }
 }

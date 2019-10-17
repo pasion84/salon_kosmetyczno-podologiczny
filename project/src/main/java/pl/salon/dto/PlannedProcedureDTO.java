@@ -1,5 +1,6 @@
 package pl.salon.dto;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import pl.salon.model.Client;
 import pl.salon.model.CosmeticProcedure;
 import java.time.LocalDateTime;
@@ -9,7 +10,9 @@ import java.util.List;
 public class PlannedProcedureDTO {
 
     private List<CosmeticProcedure> cosmeticProcedure = new ArrayList<>();
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime dateAndTimeOfProcedure;
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime createdTime;
     private Long cosmeticProcedureId;
     private Long workerId;

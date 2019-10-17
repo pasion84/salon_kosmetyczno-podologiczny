@@ -105,5 +105,11 @@
             <artifactId>jquery</artifactId>
             <version>3.4.1</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.webjars.npm/bower -->
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>bower</artifactId>
+            <version>1.7.9</version>
+        </dependency>
     </dependencies>
 </project>

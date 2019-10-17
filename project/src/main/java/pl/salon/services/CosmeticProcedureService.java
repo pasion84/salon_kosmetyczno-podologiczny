@@ -62,8 +62,9 @@ public class CosmeticProcedureService {
         plannedProcedure.setClient(clientRepository.findByEmail(email));
         plannedProcedure.setWorker(clientService.findClientById(data.getWorkerId()));
         plannedProcedure.setCreatedTime(LocalDateTime.now());
-        plannedProcedure.setDateAndTimeOfProcedure(LocalDateTime.now());
-        plannedProcedure.setCosmeticProcedureList(cosmeticProcedureRepository.findAllById(data.getCosmeticProcedureId()));
+        plannedProcedure.setDateAndTimeOfProcedure(data.getDateAndTimeOfProcedure());
+
+        plannedProcedure.setCosmeticProcedureList(data.getCosmeticProcedure());
         plannedProcedureRepository.save(plannedProcedure);
     }
 }
