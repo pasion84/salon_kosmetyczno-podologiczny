@@ -32,19 +32,14 @@ public class PlannedProceduresController {
         this.cosmeticProcedureService = cosmeticProcedureService;
     }
 
-    //    do poprawy
     @ModelAttribute("cosmeticProcedureList")
     public List<CosmeticProcedure> getCosmeticProcedureList() {
-        List<CosmeticProcedure> cosmeticProcedureList = new ArrayList<>();
-        cosmeticProcedureList.addAll(cosmeticProcedureService.findAllCosmeticProcedures());
-        return cosmeticProcedureList;
+        return cosmeticProcedureService.findAllCosmeticProcedures();
     }
 
     @ModelAttribute("workerList")
     public List<Client> getWorkerList() {
-        List<Client> clientList = new ArrayList<>();
-        clientList.addAll(clientRepository.findAllByRole("ROLE_WORKER"));
-        return clientList;
+        return clientRepository.findAllByRole("ROLE_WORKER");
     }
 
     @GetMapping("planProcedureToClient")
@@ -52,8 +47,6 @@ public class PlannedProceduresController {
         DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
         model.addAttribute("dateAndTimeOfProcedure", LocalDateTime.now().format(inputFormatter));
         model.addAttribute("addClientProcedure", new PlannedProcedureDTO());
-        model.addAttribute("procedureList", getCosmeticProcedureList());
-        model.addAttribute("allWorkers", getWorkerList());
         model.addAttribute("clientService", clientService.findClientByEmail(principal.getName()));
         return "addProcedureToClient";
     }
